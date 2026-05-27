@@ -1,0 +1,54 @@
+.overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white; padding: 24px; border-radius: 8px;
+  width: 450px; max-width: 90%;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+  display: flex; flex-direction: column;
+}
+
+.formGroup label {
+  margin-bottom: 6px; font-weight: bold;
+}
+
+.formGroup input, .formGroup textarea {
+  padding: 8px; border: 1px solid #cbd5e0; border-radius: 4px;
+}
+
+.actions {
+  display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;
+}
+
+
+
+.deliveryContainer {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.deliveryBox {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.radioLabel, .checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
