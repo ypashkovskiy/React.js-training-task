@@ -148,10 +148,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, mode, produc
   const handleEmailBlur = () => {
     // Простая проверка регулярным выражением на блуре (потере фокуса)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (!email) {
-      setError2("Поле обязательно для заполнения");
-    } else if (!emailRegex.test(email)) {
+ 
+    if (!emailRegex.test(email)) {
       setError2("Введите корректный email адрес");
     }
   };
@@ -159,15 +157,22 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, mode, produc
  const handleCount = (e) => {
     // Простая проверка регулярным выражением на блуре (потере фокуса)
     const countRegex = /^\d+$/;
+   
     const value = e.target.value;
-
+       
+     if (value === '') {
+      setCount("");
+     return;
      
+   }
+    
+   
     if (!countRegex.test(value)) {
       setErrorCount("В поле можно вводить только цифры");
       return;
     }
   
-    setCount(parseInt(value));
+   setCount(parseInt(value));
 
     if (errorCount) setErrorCount(""); 
 
@@ -231,7 +236,7 @@ const handlePriceBlur = (e) => {
           <div className={styles.formGroup}>
             <label>Email:</label>
             <input type="email" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} placeholder="example@mail.com" disabled={isView} 
-              required style={{ borderColor: error2 ? "red" : "initial" }} />
+               style={{ borderColor: error2 ? "red" : "initial" }} />
             {error2 && <p style={{ color: 'red' }}>{error2}</p>}
           </div>
           
@@ -250,7 +255,7 @@ const handlePriceBlur = (e) => {
 
           <div className={styles.formGroup}>
             <label>Count:</label>
-            <input type="number" value={count} onChange={handleCount} disabled={isView} required 
+            <input type="text" value={count} onChange={handleCount} disabled={isView} required 
              style={{ borderColor: errorCount ? "red" : "initial" }}/>
              {errorCount && <p style={{ color: 'red' }}>{errorCount}</p>}
 
